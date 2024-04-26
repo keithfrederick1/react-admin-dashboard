@@ -79,6 +79,7 @@ const FAQ = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Typography sx={{marginTop: '40px'}}>Need something else? Try our chat-bot or contact us at EMAIL or by phone at PHONE. Available weekdays 8am-6pm</Typography>
     </Box>
   );
 };

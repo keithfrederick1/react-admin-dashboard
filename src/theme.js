@@ -20,7 +20,7 @@ export const tokens = (mode) => ({
           100: "#d0d1d5",
           200: "#a1a4ab",
           300: "#727681",
-          400: "#1F2A40",
+          400: "#221f40",
           500: "#141b2d",
           600: "#101624",
           700: "#0c101b",
@@ -33,7 +33,7 @@ export const tokens = (mode) => ({
           300: "#94e2cd",
           400: "#70d8bd",
           500: "#4cceac",
-          600: "#3da58a",
+          600: "#cc6912",
           700: "#2e7c67",
           800: "#1e5245",
           900: "#0f2922",
@@ -82,7 +82,7 @@ export const tokens = (mode) => ({
           600: "#1F2A40",
           700: "#727681",
           800: "#a1a4ab",
-          900: "#d0d1d5",
+          900: "#13043b",
         },
         greenAccent: {
           100: "#0f2922",
@@ -90,7 +90,7 @@ export const tokens = (mode) => ({
           300: "#2e7c67",
           400: "#3da58a",
           500: "#4cceac",
-          600: "#70d8bd",
+          600: "#125fcc",
           700: "#94e2cd",
           800: "#b7ebde",
           900: "#dbf5ee",
@@ -130,7 +130,7 @@ export const themeSettings = (mode) => {
         ? {
             // palette values for dark mode
             primary: {
-              main: colors.primary[500],
+              main: colors.primary[900],
             },
             secondary: {
               main: colors.greenAccent[500],
@@ -150,7 +150,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[100],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.greenAccent[700],
             },
             neutral: {
               dark: colors.grey[700],

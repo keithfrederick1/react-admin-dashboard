@@ -12,6 +12,9 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import VaccinesIcon from '@mui/icons-material/Vaccines';
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -21,7 +24,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Header title="SESAME STREET MEDICAL DASHBOARD" subtitle="Welcome to LongevityRx" />
 
         <Box>
           <Button
@@ -54,13 +57,24 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
+          <Link to={"/contacts"} style={{ textDecoration: 'none' }}>
+            <StatBox
+            icon={<PeopleOutlinedIcon sx={{ color: colors.greenAccent[600], fontSize: "26px", cursor: 'pointer' }}/>}
+            subtitle="Patient Search"
+            />
+          </Link>
+        </Box>
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
+            subtitle="Medication Directory"
             icon={
-              <EmailIcon
+              <VaccinesIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -73,36 +87,16 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
+         <Link to={'/team'} style={{ textDecoration: 'none', }}>
           <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
-            progress="0.50"
-            increase="+21%"
-            icon={
-              <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
-        </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="32,441"
-            subtitle="New Clients"
-            progress="0.30"
-            increase="+5%"
+            subtitle="Providers"
             icon={
               <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
-          />
+            />
+          </Link> 
         </Box>
         <Box
           gridColumn="span 3"
@@ -112,10 +106,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
+            subtitle="Analytics"
             icon={
               <TrafficIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -143,7 +134,7 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
+                Most used Medications
               </Typography>
               <Typography
                 variant="h3"
@@ -180,7 +171,7 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Recent Prescriptions
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
@@ -224,7 +215,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Insights
           </Typography>
           <Box
             display="flex"
@@ -238,7 +229,7 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              % Lisence used
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
@@ -253,7 +244,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Sales Quantity
+            Top Providers in your Practice
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />

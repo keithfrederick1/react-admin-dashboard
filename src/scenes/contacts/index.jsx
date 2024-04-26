@@ -4,6 +4,7 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import PatientView from "../../components/PatientView";
 
 const Contacts = () => {
   const theme = useTheme();
@@ -19,11 +20,21 @@ const Contacts = () => {
       cellClassName: "name-column--cell",
     },
     {
+      field: "patientDob",
+     headerName: "DOB",
+     flex: 1,
+    },
+    {
       field: "age",
       headerName: "Age",
       type: "number",
       headerAlign: "left",
       align: "left",
+    },
+    {
+      field: "sex",
+     headerName: "Sex",
+     flex: 1,
     },
     {
       field: "phone",
@@ -50,13 +61,45 @@ const Contacts = () => {
       headerName: "Zip Code",
       flex: 1,
     },
+    {
+      field: "mrn",
+     headerName: "MRN",
+     flex: 1,
+    },
+    {
+      field: "providerInfo",
+     headerName: "Provider Info",
+     flex: 1,
+    },
+    {
+      field: "prescriptionBenefit",
+     headerName: "Prescription Benefit",
+     flex: 1,
+    },
+    {
+      field: "visit",
+      headerName: "Visit",
+      flex: 1,
+      renderCell: (params) => {
+        // Check if the column is "visit"
+        if (params.field === 'visit') {
+          // If it is, render your custom PatientView component
+          return <PatientView />;
+        } else {
+          // Otherwise, just render the default cell content
+          return params.value;
+        }
+      },
+    },
+
+    
   ];
 
   return (
     <Box m="20px">
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title="Patients"
+        subtitle="click name to visit"
       />
       <Box
         m="40px 0 0 0"
